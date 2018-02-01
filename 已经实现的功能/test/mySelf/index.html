@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Use correct character set. -->
+	<meta charset="utf-8">
+	<!-- Tell IE to use the latest, best version. -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>Hello World!</title>
+	<link rel="stylesheet" href="css/test.css" />
+	<script src="../../Build/Cesium/Cesium.js"></script>
+	<script src="js/apiManage.js"></script>
+	<style>
+		@import url(../../Build/Cesium/Widgets/widgets.css);
+		html,
+		body,
+		#cesiumContainer {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="cesiumContainer"></div>
+	<div id="showModelNodes_dom" style="position: absolute;top:100px;background: #fff;z-index: 666;"></div>
+	<div id="loadModels" style="display: none">
+		<h3>显隐改dom</h3>
+		<div id="showOrNoDom">
+			<button id="chid_show">显示</button>
+			<button id="chid_no">隐藏</button>
+		</div>
+		<h3>定位到对应模型</h3>
+		<ul id="loadModel_content">
+			
+		</ul>
+		<h3>设置模型颜色</h3>
+		<div id="setModelColor"></div>
+		
+		
+		<h3>隐藏对应模型</h3>
+		<div id="setModelVisible"></div>
+		<h3>显示对应模型</h3>
+		<div id="setModelShow"></div>
+		<h3>显示模型的节点</h3>
+		<div id="showModelNodes">
+			
+		</div>
+
+		<h3>测试模型摆放</h3>
+		<button id="testPlace">测试摆放</button>
+		
+		
+	</div>
+	<h1 class="laoding" id="loading">loading.....</h1>
+
+	<script src="js/testPlace.js"></script>
+	<script src="js/20180130test.js"></script>
+	<!--<script src="js/20180131.js"></script>-->
+	<!--<script src="js/test.js"></script>-->
+	<script type="text/javascript">
+		var viewer = new Cesium.Viewer('cesiumContainer');
+		var api = new GeoEngine(viewer);
+		test_20180130(viewer, api);
+
+
+
+	</script>
