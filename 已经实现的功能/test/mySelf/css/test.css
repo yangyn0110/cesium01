@@ -54,13 +54,13 @@
 			background: rgba(0,0,0,0.5);
 		}
 		
-		#clearModel, #setModelColor, #setModelVisible,#setModelShow,#addModel, #showModelNodes{
+		#clearModel, #setModelColor, #setModelVisible,#setModelShow,#addModel, #showModelNodes, #clipModels{
 			padding: 0;
 			margin-bottom: 25px;
 			color:#ccc;
 			font-size: 15px;
 		}
-		#clearModel > p ,#setModelColor>p, #setModelVisible>p, #setModelShow > p, #addModel > p{
+		#clearModel > p ,#setModelColor>p, #setModelVisible>p, #setModelShow > p, #addModel > p, #clipModels > p{
 			margin: 0;
 			cursor: pointer;
 			padding: 4px 4px;
@@ -103,4 +103,9 @@
 		#showOrNoDom > button {
 			cursor: pointer;
 			
+		}
+
+		.place_dom {
+			margin: 2px 0 10px;
+			text-align: center;
 		}

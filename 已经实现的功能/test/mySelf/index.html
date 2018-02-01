@@ -10,7 +10,7 @@
 	<title>Hello World!</title>
 	<link rel="stylesheet" href="css/test.css" />
 	<script src="../../Build/Cesium/Cesium.js"></script>
-	<script src="js/apiManage.js"></script>
+	<script src="js/api/apiManage.js"></script>
 	<style>
 		@import url(../../Build/Cesium/Widgets/widgets.css);
 		html,
@@ -52,20 +52,38 @@
 		</div>
 
 		<h3>测试模型摆放</h3>
-		<button id="testPlace">测试摆放</button>
+		<p class="place_dom">
+			<button id="testPlace">开始摆放</button>
+		</p>
+
+		<h3>请选择要剖切的模型</h3>
+		<div id="clipModels">
+
+		</div>
+
 		
 		
 	</div>
+	<div id="t" style="position: absolute;left: 0;top:0;">
+		<button id="test_pl">测试摆放</button>
+	</div>
 	<h1 class="laoding" id="loading">loading.....</h1>
-
-	<script src="js/testPlace.js"></script>
-	<script src="js/20180130test.js"></script>
+	<!--<script src="js/20100201_day.js"></script>-->
+	<!--<script src="js/testPlace.js"></script>-->
+	<!--<script src="js/20180130test.js"></script>-->
+	<!--<script src="js/20180201_place.js"></script>-->
 	<!--<script src="js/20180131.js"></script>-->
 	<!--<script src="js/test.js"></script>-->
+	<script src="js/20180201_place.js"></script>
+	<script src="js/20100201_day.js"></script>
 	<script type="text/javascript">
 		var viewer = new Cesium.Viewer('cesiumContainer');
 		var api = new GeoEngine(viewer);
-		test_20180130(viewer, api);
+		// test_20180130(viewer, api, clipModels);
+		//2018/02/01模型摆放更新版本
+        // test_20180130(viewer, api, test);
+
+        test_p(viewer,api);
 
 
 

@@ -1,5 +1,5 @@
 
-function test_20180130(viewer, api){
+function test_20180130(viewer, api, callback){
 	var qiY = {
 			//企业的偏移
 			location : {
@@ -52,27 +52,19 @@ function test_20180130(viewer, api){
 		
 		
 
+		var click_placeCount = 0;
 		var loading = document.getElementById('loading');
 		function onload(models) {
-			
+            loadModels.style.display ='block';
+            callback(models);
+            //模型摆放
+            var placeTest =  new GeoModelPlacement(models, viewer);
 			//
-			var placeTest =  new GeoModelPlacement(models, viewer);
-			placeTest.start();
-			loading.style.display = 'none';
-            testPlace.addEventListener('mousedown',function(){
-                placeTest.stop();
-                console.log(placeTest.QYInfo);
-                var newInfo = placeTest.QYInfo;
-                api.setModelCompanyInfo(models,newInfo);
-			},false);
-	
-			//20180128  测试模型摆放
-			// api.placedEnterprisePrimities(models);
 
-			
-			//测试获取模型的 id  获取单个模型
-//			var id1 = api.getObjectId([models[1]);
-//			console.log(id1);
+
+			loading.style.display = 'none';
+            testPlace.addEventListener('mousedown',testPlaceEvent(placeTest,click_placeCount),false);
+
 
 			//添加dom
 			for(var i=0;i<models.length;i++){
@@ -116,8 +108,24 @@ function test_20180130(viewer, api){
 				div_showNodes.addEventListener('mousedown',showModelNodesEvent(div_showNodes), false);
 			
 			
-				loadModels.style.display ='block';
+
+
+
 			}
+			//测试模型摆放
+			function testPlaceEvent(obj, count) {
+				return function () {
+					count++;
+					if(count%2 == 0){
+						obj.stop();
+						count = 0
+                        testPlace.innerHTML = "开始摆放";
+					}else {
+						obj.start();
+						testPlace.innerHTML = "结束摆放";
+					}
+                }
+            }
 			//定位到对应模型
 			function onmousedown(dom){
 				return function(){
